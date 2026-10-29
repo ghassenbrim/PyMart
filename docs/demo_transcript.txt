@@ -1,0 +1,98 @@
+$ python -m pymart.cli --help
+usage: pymart [-h] [--version] [--state STATE]
+              {import,orders,report,schedule} ...
+
+PyMart back-office toolkit
+
+positional arguments:
+  {import,orders,report,schedule}
+    import              import product/customer/order files
+    orders              create or list orders
+    report              generate reports on disk
+    schedule            show next report dates
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --state STATE         state file (default: .pymart/state.json)
+
+$ python -m pymart.cli import --products data/products.txt --customers data/customers.txt --orders data/orders.txt
+[products] 7 accepted, 7 rejected (5.3 ms)
+    ! products.txt:8: invalid number for price: 'abc'
+    ! products.txt:9: stock cannot be negative: -3
+    ! products.txt:10: malformed product id 'PX08' (expected 'P' + 3-6 digits)
+    ! products.txt:11: duplicate product id P001
+    ! products.txt:13: missing price
+    ! products.txt:15: missing price
+    ! products.txt:16: unknown product type 'frozen' (allowed: standard, perishable, digital)
+[customers] 5 accepted, 4 rejected (0.3 ms)
+    ! customers.txt:5: invalid email 'not-an-email'
+    ! customers.txt:7: duplicate customer id C003
+    ! customers.txt:8: missing customer id
+    ! customers.txt:10: unknown customer type 'vip' (allowed: individual, business)
+[orders] 9 accepted, 8 rejected (1.2 ms)
+    ! orders.txt:6: quantity must be positive: -2
+    ! orders.txt:9: unknown customer C999
+    ! orders.txt:10: unknown product P777
+    ! orders.txt:11: invalid order date '31-06-2026' (accepted: YYYY-MM-DD, DD/MM/YYYY, DD-MM-YYYY)
+    ! orders.txt:12: product P005 is expired on 2026-06-30
+    ! orders.txt:16: missing quantity
+    ! orders.txt:17: quantity must be a whole number: '2.5'
+    ! orders.txt:18: order O001 conflicts with its earlier lines (different customer or date)
+
+$ python -m pymart.cli report --type daily --date 2026-06-30 --out reports/
+Generating at 2026-10-29 09:07:26 (unix 1793264846)
+  daily    -> reports/2026/06/daily_sales_2026-06-30.txt
+
+$ python -m pymart.cli report --type monthly --month 2026-06 --out reports/
+Generating at 2026-10-29 09:07:26 (unix 1793264846)
+  monthly  -> reports/2026/06/monthly_summary_2026-06.txt
+
+$ python -m pymart.cli report --type stock --date 2026-06-30 --out reports/
+Generating at 2026-10-29 09:07:26 (unix 1793264846)
+  stock    -> reports/2026/06/stock_levels_2026-06-30.txt
+
+$ python -m pymart.cli report --type rejects --date 2026-06-30 --out reports/
+Generating at 2026-10-29 09:07:26 (unix 1793264846)
+  rejects  -> reports/2026/06/failed_records_2026-06-30.txt
+
+$ python -m pymart.cli orders create --customer C002 --item P001:5 --item P004:1 --date 2026-06-30
+Order created:
+O013  2026-06-30  C002 Maison Du Cafe (Sfax) [Business -10%]
+    P001 x5   @     4.50  Basmati Rice 1Kg
+    P004 x1   @    12.00  E-Book Python
+    subtotal 34.50 - discount 3.45 + tax 5.90 = TOTAL 36.95 TND
+
+$ python -m pymart.cli orders list --date 2026-06-30
+O001  2026-06-30  C001 Alice Ben Salah (Tunis) [Individual]
+    P001 x3   @     4.50  Basmati Rice 1Kg
+    P002 x2   @     1.33  Fresh Milk 1L
+    subtotal 16.16 - discount 0.00 + tax 2.76 = TOTAL 18.92 TND
+O002  2026-06-30  C002 Maison Du Cafe (Sfax) [Business -10%]
+    P003 x4   @    29.90  Wireless Mouse
+    P004 x1   @    12.00  E-Book Python
+    subtotal 131.60 - discount 13.16 + tax 22.50 = TOTAL 140.94 TND
+O013  2026-06-30  C002 Maison Du Cafe (Sfax) [Business -10%]
+    P001 x5   @     4.50  Basmati Rice 1Kg
+    P004 x1   @    12.00  E-Book Python
+    subtotal 34.50 - discount 3.45 + tax 5.90 = TOTAL 36.95 TND
+3 order(s).
+
+# Error handling examples
+$ python -m pymart.cli orders create --customer C001 --item P001:9999
+Error: insufficient stock for P001: requested 9999, available 115
+exit code: 2
+$ python -m pymart.cli orders create --customer C999 --item P001:1
+Error: unknown customer C999
+exit code: 2
+$ python -m pymart.cli report --type monthly --month 2026-13 --out reports/
+Error: invalid month '2026-13' (expected YYYY-MM)
+exit code: 2
+$ python -m pymart.cli import --products data/missing.txt
+[products] FAILED  missing.txt: cannot open file: No such file or directory
+exit code: 1
+$ python -m pymart.cli schedule --date 2026-06-30
+Reference date          : 2026-06-30
+Next daily report       : 2026-07-01
+Month-end (this month)  : 2026-06-30
+Next monthly report     : 2026-07 (run on/after 2026-07-01)

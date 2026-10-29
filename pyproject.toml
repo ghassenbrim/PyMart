@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools>=61"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "pymart"
+version = "1.0.0"
+description = "PyMart command-line back-office toolkit"
+requires-python = ">=3.8"
+
+[project.scripts]
+pymart = "pymart.cli:main"
+
+[tool.setuptools]
+packages = ["pymart"]

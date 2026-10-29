@@ -1,0 +1,41 @@
+=== PyMart | Monthly Summary ===
+Period        : June 2026 (2026-06-01 to 2026-06-30)
+Data snapshot : 2026-10-29T10:45:25
+
+Orders          : 7
+Units sold      : 70
+Subtotal        : 567.56 TND
+Discounts       : 50.89 TND
+Tax             : 97.87 TND
+Total revenue   : 614.54 TND
+
+-- Sales by category --
+Category              Units       Revenue
+Dairy                     2          2.66
+Digital                   3         36.00
+Electronics               6        179.40
+Grocery                  59        349.50
+
+-- Top 5 products (by units) --
+ID      Name                        Units       Revenue
+P001    Basmati Rice 1Kg               53        238.50
+P003    Wireless Mouse                  6        179.40
+P008    Olive Oil 1L                    6        111.00
+P004    E-Book Python                   3         36.00
+P002    Fresh Milk 1L                   2          2.66
+
+Days with sales : 5 / 30
+Best day        : 2026-06-12 (Friday) 305.03 TND
+
+-- Revenue per day --
+2026-06-12          305.03 TND
+2026-06-15           28.56 TND
+2026-06-20           22.02 TND
+2026-06-29           99.07 TND
+2026-06-30          159.86 TND
+
+-- Top 5 customers (by spend) --
+C002   Maison Du Cafe                    381.92 TND
+C005   Atlas Trading                     163.12 TND
+C001   Alice Ben Salah                    47.48 TND
+C003   Karim Trabelsi                     22.02 TND

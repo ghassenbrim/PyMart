@@ -1,0 +1,14 @@
+=== PyMart | Stock Levels ===
+Period        : as of 2026-06-30
+Data snapshot : 2026-10-29T09:07:45
+
+ID      Name                      Category       Stock  Status
+P001    Basmati Rice 1Kg          Grocery          120  OK
+P002    Fresh Milk 1L             Dairy             40  OK / EXPIRES 2026-07-02
+P003    Wireless Mouse            Electronics       15  OK
+P004    E-Book Python             Digital            -  UNLIMITED
+P005    Yogurt Pack               Dairy             25  EXPIRED
+P008    Olive Oil 1L              Grocery            8  LOW
+P010    Headphones                Electronics        0  OUT OF STOCK
+
+Products: 7  |  needing attention: 5

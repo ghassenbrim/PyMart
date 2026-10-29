@@ -1,0 +1,10 @@
+customer_id,name,email,type,city
+C001,alice ben salah,Alice@Example.com,individual,tunis
+C002;Maison Du Cafe;contact@maisoncafe.tn;business;Sfax
+c003 , karim   trabelsi , karim@example.com , individual , Ariana
+C004,Bad Email,not-an-email,individual,Sousse
+C005,Atlas Trading,info@atlas.tn,Business,Tunis
+C003,Duplicate Karim,k2@example.com,individual,Tunis
+,Missing Id,x@y.tn,individual,Tunis
+C006,No Type Guy,no@type.tn,,Bizerte
+C007,Weird Type,w@w.tn,vip,Tunis

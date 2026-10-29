@@ -1,0 +1,16 @@
+product_id;name;category;price;stock;type;expiry_date
+P001;Basmati Rice 1kg;Grocery;4,50;120;standard;
+P002;  fresh   milk 1l ;dairy;1.90;40;perishable;2026-07-02
+ p003 | Wireless Mouse | electronics | 29.90 | 15 | standard |
+P004,E-Book Python,Digital,12.00,0,digital,
+P005;Yogurt Pack;Dairy;3.20;25;perishable;2026-06-29
+
+P006;Notebook A5;Stationery;abc;50;standard;
+P007;Pen Set;Stationery;5.00;-3;standard;
+PX08;Bad Id;Grocery;1;1;standard;
+P001;Duplicate Rice;Grocery;4.00;10;standard;
+P008;Olive Oil 1l;grocery;18.50;8;standard;
+P009;Cheese;Dairy;;12;standard;
+P010;Headphones;Electronics;59,00;0;standard;
+P011;Short Row;Grocery
+P012;Mystery Box;Grocery;9.99;5;frozen;

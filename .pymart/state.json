@@ -1,0 +1,331 @@
+{
+ "imported_at": "2026-10-29T10:45:25",
+ "products": [
+  {
+   "kind": "standard",
+   "product_id": "P001",
+   "name": "Basmati Rice 1Kg",
+   "category": "Grocery",
+   "price": "4.50",
+   "stock": 120
+  },
+  {
+   "kind": "perishable",
+   "product_id": "P002",
+   "name": "Fresh Milk 1L",
+   "category": "Dairy",
+   "price": "1.90",
+   "stock": 40,
+   "expiry_date": "2026-07-02"
+  },
+  {
+   "kind": "standard",
+   "product_id": "P003",
+   "name": "Wireless Mouse",
+   "category": "Electronics",
+   "price": "29.90",
+   "stock": 15
+  },
+  {
+   "kind": "digital",
+   "product_id": "P004",
+   "name": "E-Book Python",
+   "category": "Digital",
+   "price": "12.00",
+   "stock": 0
+  },
+  {
+   "kind": "perishable",
+   "product_id": "P005",
+   "name": "Yogurt Pack",
+   "category": "Dairy",
+   "price": "3.20",
+   "stock": 25,
+   "expiry_date": "2026-06-29"
+  },
+  {
+   "kind": "standard",
+   "product_id": "P008",
+   "name": "Olive Oil 1L",
+   "category": "Grocery",
+   "price": "18.50",
+   "stock": 8
+  },
+  {
+   "kind": "standard",
+   "product_id": "P010",
+   "name": "Headphones",
+   "category": "Electronics",
+   "price": "59.00",
+   "stock": 0
+  }
+ ],
+ "customers": [
+  {
+   "kind": "individual",
+   "customer_id": "C001",
+   "name": "Alice Ben Salah",
+   "email": "alice@example.com",
+   "city": "Tunis"
+  },
+  {
+   "kind": "business",
+   "customer_id": "C002",
+   "name": "Maison Du Cafe",
+   "email": "contact@maisoncafe.tn",
+   "city": "Sfax"
+  },
+  {
+   "kind": "individual",
+   "customer_id": "C003",
+   "name": "Karim Trabelsi",
+   "email": "karim@example.com",
+   "city": "Ariana"
+  },
+  {
+   "kind": "business",
+   "customer_id": "C005",
+   "name": "Atlas Trading",
+   "email": "info@atlas.tn",
+   "city": "Tunis"
+  },
+  {
+   "kind": "individual",
+   "customer_id": "C006",
+   "name": "No Type Guy",
+   "email": "no@type.tn",
+   "city": "Bizerte"
+  }
+ ],
+ "orders": [
+  {
+   "order_id": "O001",
+   "date": "2026-06-30",
+   "customer_id": "C001",
+   "lines": [
+    {
+     "product_id": "P001",
+     "quantity": 3,
+     "unit_price": "4.50"
+    },
+    {
+     "product_id": "P002",
+     "quantity": 2,
+     "unit_price": "1.33"
+    }
+   ]
+  },
+  {
+   "order_id": "O002",
+   "date": "2026-06-30",
+   "customer_id": "C002",
+   "lines": [
+    {
+     "product_id": "P003",
+     "quantity": 4,
+     "unit_price": "29.90"
+    },
+    {
+     "product_id": "P004",
+     "quantity": 1,
+     "unit_price": "12.00"
+    }
+   ]
+  },
+  {
+   "order_id": "O004",
+   "date": "2026-06-29",
+   "customer_id": "C005",
+   "lines": [
+    {
+     "product_id": "P008",
+     "quantity": 5,
+     "unit_price": "18.50"
+    }
+   ]
+  },
+  {
+   "order_id": "O005",
+   "date": "2026-06-15",
+   "customer_id": "C001",
+   "lines": [
+    {
+     "product_id": "P004",
+     "quantity": 2,
+     "unit_price": "12.00"
+    }
+   ]
+  },
+  {
+   "order_id": "O010",
+   "date": "2026-06-12",
+   "customer_id": "C002",
+   "lines": [
+    {
+     "product_id": "P001",
+     "quantity": 50,
+     "unit_price": "4.50"
+    }
+   ]
+  },
+  {
+   "order_id": "O011",
+   "date": "2026-06-12",
+   "customer_id": "C005",
+   "lines": [
+    {
+     "product_id": "P003",
+     "quantity": 2,
+     "unit_price": "29.90"
+    }
+   ]
+  },
+  {
+   "order_id": "O012",
+   "date": "2026-06-20",
+   "customer_id": "C003",
+   "lines": [
+    {
+     "product_id": "P008",
+     "quantity": 1,
+     "unit_price": "18.50"
+    }
+   ]
+  }
+ ],
+ "rejects": [
+  {
+   "entity": "products",
+   "file": "products.txt",
+   "line": 8,
+   "message": "invalid number for price: 'abc'",
+   "raw": "P006;Notebook A5;Stationery;abc;50;standard;"
+  },
+  {
+   "entity": "products",
+   "file": "products.txt",
+   "line": 9,
+   "message": "stock cannot be negative: -3",
+   "raw": "P007;Pen Set;Stationery;5.00;-3;standard;"
+  },
+  {
+   "entity": "products",
+   "file": "products.txt",
+   "line": 10,
+   "message": "malformed product id 'PX08' (expected 'P' + 3-6 digits)",
+   "raw": "PX08;Bad Id;Grocery;1;1;standard;"
+  },
+  {
+   "entity": "products",
+   "file": "products.txt",
+   "line": 11,
+   "message": "duplicate product id P001",
+   "raw": "P001;Duplicate Rice;Grocery;4.00;10;standard;"
+  },
+  {
+   "entity": "products",
+   "file": "products.txt",
+   "line": 13,
+   "message": "missing price",
+   "raw": "P009;Cheese;Dairy;;12;standard;"
+  },
+  {
+   "entity": "products",
+   "file": "products.txt",
+   "line": 15,
+   "message": "missing price",
+   "raw": "P011;Short Row;Grocery"
+  },
+  {
+   "entity": "products",
+   "file": "products.txt",
+   "line": 16,
+   "message": "unknown product type 'frozen' (allowed: standard, perishable, digital)",
+   "raw": "P012;Mystery Box;Grocery;9.99;5;frozen;"
+  },
+  {
+   "entity": "customers",
+   "file": "customers.txt",
+   "line": 5,
+   "message": "invalid email 'not-an-email'",
+   "raw": "C004,Bad Email,not-an-email,individual,Sousse"
+  },
+  {
+   "entity": "customers",
+   "file": "customers.txt",
+   "line": 7,
+   "message": "duplicate customer id C003",
+   "raw": "C003,Duplicate Karim,k2@example.com,individual,Tunis"
+  },
+  {
+   "entity": "customers",
+   "file": "customers.txt",
+   "line": 8,
+   "message": "missing customer id",
+   "raw": ",Missing Id,x@y.tn,individual,Tunis"
+  },
+  {
+   "entity": "customers",
+   "file": "customers.txt",
+   "line": 10,
+   "message": "unknown customer type 'vip' (allowed: individual, business)",
+   "raw": "C007,Weird Type,w@w.tn,vip,Tunis"
+  },
+  {
+   "entity": "orders",
+   "file": "orders.txt",
+   "line": 6,
+   "message": "quantity must be positive: -2",
+   "raw": "O003,2026-06-30,C003,P001,-2"
+  },
+  {
+   "entity": "orders",
+   "file": "orders.txt",
+   "line": 9,
+   "message": "unknown customer C999",
+   "raw": "O006,2026-06-30,C999,P001,1"
+  },
+  {
+   "entity": "orders",
+   "file": "orders.txt",
+   "line": 10,
+   "message": "unknown product P777",
+   "raw": "O007,2026-06-30,C001,P777,1"
+  },
+  {
+   "entity": "orders",
+   "file": "orders.txt",
+   "line": 11,
+   "message": "invalid order date '31-06-2026' (accepted: YYYY-MM-DD, DD/MM/YYYY, DD-MM-YYYY)",
+   "raw": "O008,31-06-2026,C001,P001,1"
+  },
+  {
+   "entity": "orders",
+   "file": "orders.txt",
+   "line": 12,
+   "message": "product P005 is expired on 2026-06-30",
+   "raw": "O009,2026-06-30,C003,P005,2"
+  },
+  {
+   "entity": "orders",
+   "file": "orders.txt",
+   "line": 16,
+   "message": "missing quantity",
+   "raw": "O013,2026-06-30,C003,P001"
+  },
+  {
+   "entity": "orders",
+   "file": "orders.txt",
+   "line": 17,
+   "message": "quantity must be a whole number: '2.5'",
+   "raw": "O014,2026-06-30,C003,P001,2.5"
+  },
+  {
+   "entity": "orders",
+   "file": "orders.txt",
+   "line": 18,
+   "message": "order O001 conflicts with its earlier lines (different customer or date)",
+   "raw": "O001,2026-07-01,C001,P003,1"
+  }
+ ]
+}

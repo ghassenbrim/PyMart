@@ -1,0 +1,28 @@
+=== PyMart | Daily Sales Summary ===
+Period        : 2026-06-30 (Tuesday)
+Data snapshot : 2026-10-29T10:45:25
+
+Orders          : 2
+Units sold      : 10
+Subtotal        : 147.76 TND
+Discounts       : 13.16 TND
+Tax             : 25.26 TND
+Total revenue   : 159.86 TND
+
+-- Sales by category --
+Category              Units       Revenue
+Dairy                     2          2.66
+Digital                   1         12.00
+Electronics               4        119.60
+Grocery                   3         13.50
+
+-- Top 5 products (by units) --
+ID      Name                        Units       Revenue
+P003    Wireless Mouse                  4        119.60
+P001    Basmati Rice 1Kg                3         13.50
+P002    Fresh Milk 1L                   2          2.66
+P004    E-Book Python                   1         12.00
+
+-- Orders --
+O001   C001   Alice Ben Salah            5 units         18.92 TND
+O002   C002   Maison Du Cafe             5 units        140.94 TND

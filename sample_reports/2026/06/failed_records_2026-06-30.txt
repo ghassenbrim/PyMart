@@ -1,0 +1,62 @@
+=== PyMart | Failed Records ===
+Period        : as of 2026-06-30
+Data snapshot : 2026-10-29T09:07:45
+
+Rejected records: 19
+
+[customers] customers.txt:5  invalid email 'not-an-email'
+    raw: C004,Bad Email,not-an-email,individual,Sousse
+
+[customers] customers.txt:7  duplicate customer id C003
+    raw: C003,Duplicate Karim,k2@example.com,individual,Tunis
+
+[customers] customers.txt:8  missing customer id
+    raw: ,Missing Id,x@y.tn,individual,Tunis
+
+[customers] customers.txt:10  unknown customer type 'vip' (allowed: individual, business)
+    raw: C007,Weird Type,w@w.tn,vip,Tunis
+
+[orders] orders.txt:6  quantity must be positive: -2
+    raw: O003,2026-06-30,C003,P001,-2
+
+[orders] orders.txt:9  unknown customer C999
+    raw: O006,2026-06-30,C999,P001,1
+
+[orders] orders.txt:10  unknown product P777
+    raw: O007,2026-06-30,C001,P777,1
+
+[orders] orders.txt:11  invalid order date '31-06-2026' (accepted: YYYY-MM-DD, DD/MM/YYYY, DD-MM-YYYY)
+    raw: O008,31-06-2026,C001,P001,1
+
+[orders] orders.txt:12  product P005 is expired on 2026-06-30
+    raw: O009,2026-06-30,C003,P005,2
+
+[orders] orders.txt:16  missing quantity
+    raw: O013,2026-06-30,C003,P001
+
+[orders] orders.txt:17  quantity must be a whole number: '2.5'
+    raw: O014,2026-06-30,C003,P001,2.5
+
+[orders] orders.txt:18  order O001 conflicts with its earlier lines (different customer or date)
+    raw: O001,2026-07-01,C001,P003,1
+
+[products] products.txt:8  invalid number for price: 'abc'
+    raw: P006;Notebook A5;Stationery;abc;50;standard;
+
+[products] products.txt:9  stock cannot be negative: -3
+    raw: P007;Pen Set;Stationery;5.00;-3;standard;
+
+[products] products.txt:10  malformed product id 'PX08' (expected 'P' + 3-6 digits)
+    raw: PX08;Bad Id;Grocery;1;1;standard;
+
+[products] products.txt:11  duplicate product id P001
+    raw: P001;Duplicate Rice;Grocery;4.00;10;standard;
+
+[products] products.txt:13  missing price
+    raw: P009;Cheese;Dairy;;12;standard;
+
+[products] products.txt:15  missing price
+    raw: P011;Short Row;Grocery
+
+[products] products.txt:16  unknown product type 'frozen' (allowed: standard, perishable, digital)
+    raw: P012;Mystery Box;Grocery;9.99;5;frozen;
